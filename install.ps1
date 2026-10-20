@@ -24,6 +24,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# "irm ... | iex" runs the script without parameter defaults.
+if (-not $Branch) { $Branch = 'main' }
 $Repo = 'avibpers/AvushSkills'
 # AVUSH_SKILLS_HOME points the script at another home folder (for testing).
 $Home_ = if ($env:AVUSH_SKILLS_HOME) { $env:AVUSH_SKILLS_HOME } else { [Environment]::GetFolderPath('UserProfile') }
