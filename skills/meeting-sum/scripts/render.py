@@ -451,6 +451,11 @@ def wb_speakers(c):
             f"{rows}</table></div></section>")
 
 
+# Screenshots exist only in Koli meetings; templates made there still render here.
+def wb_screenshots(c):
+    return ''
+
+
 def wb_topics(c):
     if not c.topics:
         return ''
@@ -643,6 +648,10 @@ def db_speakers(c):
         out.append(f"<table {TABLE}><tr><th>Speaker</th><th>Role in this meeting</th></tr>"
                    + ''.join(f"<tr><td>{e(s['name'])}</td><td>{e(s['role'])}</td></tr>" for s in c.stats) + "</table>")
     return ''.join(out)
+
+
+def db_screenshots(c):
+    return ''
 
 
 def db_topics(c):

@@ -44,6 +44,7 @@ BLOCKS = {
     'parked': 'Parked items only',
     'next_meeting': 'Points left for the next meeting',
     'speakers': 'Who spoke: talk-time charts and a table with roles',
+    'screenshots': 'What was on screen (Koli meetings only; empty here)',
     'topics': 'Topic cards in time order with points and quotes',
     'sections': 'Custom sections the template defines (title + bullets or paragraphs)',
     'notes': 'Notes on transcript quality',
