@@ -1,0 +1,12 @@
+{
+  "name": "avush-skills",
+  "owner": { "name": "Avi Barzilay", "url": "https://github.com/avibpers" },
+  "metadata": { "description": "Avush's agent skills for Claude Code, Grok Build and other agents." },
+  "plugins": [
+    {
+      "name": "avush-skills",
+      "source": "./",
+      "description": "All Avush skills in one plugin: meeting-sum (meeting summaries from any transcript, with templates)."
+    }
+  ]
+}

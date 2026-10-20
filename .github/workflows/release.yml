@@ -1,0 +1,31 @@
+# Builds one zip per skill and publishes them on a GitHub release, so people
+# using claude.ai, ChatGPT or Grok on the web can download and upload them.
+# Runs when a version tag is pushed (git tag v1.1.0 && git push origin v1.1.0).
+name: Release skill zips
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build zips
+        run: python tools/package.py
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then TAG="$(git describe --tags --abbrev=0)"; fi
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$TAG" --notes "See CHANGELOG.md"
+          gh release upload "$TAG" dist/*.zip --clobber

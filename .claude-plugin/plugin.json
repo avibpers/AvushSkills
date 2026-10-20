@@ -1,0 +1,9 @@
+{
+  "name": "avush-skills",
+  "description": "Avush's agent skills: meeting summaries from any transcript, with templates.",
+  "author": { "name": "Avi Barzilay", "url": "https://github.com/avibpers" },
+  "homepage": "https://github.com/avibpers/AvushSkills",
+  "repository": "https://github.com/avibpers/AvushSkills",
+  "license": "MIT",
+  "keywords": ["skills", "meetings", "summary", "transcript"]
+}
